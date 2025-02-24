@@ -1,0 +1,95 @@
+
+@font-face {
+    font-family: 'Metal';
+    src: url(/utils/font/Metal_Slug_Latino_Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Metal';
+    font-size: 1.3rem;
+}
+
+body {
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover 100% 100%;
+}
+
+#contenedor{
+    height: 40%;
+    text-align: center;
+    align-content: center;
+    display: grid;
+}
+
+#contenedor_accion{
+   
+    text-align: left;
+    display: grid;
+    grid-template-rows: 4;
+}
+
+button>img{
+    width: 1.3rem;
+    height: 1.3rem;
+    background-color: none;
+}
+#campana{
+    background-color: rgb(10, 104, 10);
+}
+#campanas{
+    display: none;
+}
+#caja{
+    background-color: rgb(10, 104, 10);
+}
+#tipos_campanas{
+    display: none;
+}
+
+#fabrica{
+    display: none;
+    font-size: 0.8rem;
+    background-color:beige;
+}
+#entrenamiento{
+    display: none;
+    font-size: 0.8rem;
+    background-color:beige;
+}
+#mando{
+    display: none;
+    font-size: 0.8rem;
+    background-color:beige;
+}
+#vehiculos{
+    display: none;
+    font-size: 0.8rem;
+    background-color:beige;
+}
+#armeria{
+    display: none;
+    font-size: 0.8rem;
+    background-color:beige;
+}
+
+
+#suministros{
+    display: none;
+    
+}
+#suministro{
+    background-color: rgb(10, 104, 10);
+}
+#fin{
+    display: none;
+}
+
+#materiales{
+    display: none;
+    margin-top: 90%;
+}

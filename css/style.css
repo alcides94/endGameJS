@@ -21,3 +21,13 @@ body {
     font-size: 4rem;
     text-align: center;
 }
+
+#contenedor{
+    text-align: center;
+}
+form>input{
+    
+    height: 2rem;
+    font-size: 1.5rem;
+    align-items: center;
+}
