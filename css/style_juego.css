@@ -8,7 +8,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Metal';
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
 body {
@@ -27,7 +27,6 @@ body {
 }
 
 #contenedor_accion{
-   
     text-align: left;
     display: grid;
     grid-template-rows: 4;
@@ -38,50 +37,29 @@ button>img{
     height: 1.3rem;
     background-color: none;
 }
-#campana{
-    background-color: rgb(10, 104, 10);
-}
 #campanas{
     display: none;
+}
+#campana{
+    background-color: rgb(10, 104, 10);
 }
 #caja{
     background-color: rgb(10, 104, 10);
 }
 #tipos_campanas{
     display: none;
-}
-
-#fabrica{
-    display: none;
     font-size: 0.8rem;
-    background-color:beige;
+    margin-left: 70px;
 }
-#entrenamiento{
+#armerias{
     display: none;
-    font-size: 0.8rem;
-    background-color:beige;
+   
 }
-#mando{
-    display: none;
-    font-size: 0.8rem;
-    background-color:beige;
-}
-#vehiculos{
-    display: none;
-    font-size: 0.8rem;
-    background-color:beige;
-}
-#armeria{
-    display: none;
-    font-size: 0.8rem;
-    background-color:beige;
-}
-
 
 #suministros{
-    display: none;
-    
+    display: none; 
 }
+
 #suministro{
     background-color: rgb(10, 104, 10);
 }
@@ -90,6 +68,32 @@ button>img{
 }
 
 #materiales{
-    display: none;
-    margin-top: 90%;
+    font-size: 1rem;
+}
+
+#compras{
+    margin-left: 70px;
+}
+#btn_armeria{
+    background-color: rgb(10, 104, 10);
+}
+
+#materiales>p{
+    width: 50%;
+}
+
+#imagenes{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+}
+
+#imagenes>div{
+    width: 25%;
+    height: 100px;
+    display: flex;
+}
+#imagenes>div>button{
+    width: 30%;
+    height: 30%;
+    font-size: 0.8rem;
 }

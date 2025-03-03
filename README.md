@@ -117,3 +117,13 @@ Dia 2: Se pulio la idea del juego, se busco las imagenes para que quede bonito j
         se procedio a realizar el boton de caja el cual genera la moneda se utilizo un setTimeout para que lo cargue en un tiempo 
 
         Se estuvo pensando en implementar promesas pero al final no, pusimos un if dentro del setTimeout para que cuando el jugador tenga 2 monedas se ejecute mostrar
+
+Dia 3: Se procede a continuar con el segundo boton de Suministro, se procedio a verificar que se actualice materiales 
+        
+
+Dia 4: se procedio a realizar el boton de Entrenamiento, verificando con un if para ver si  se complia con los requisitos para la creacion y actulizando el material
+
+Dia 5: Se pocredio a crear el boton de fabrica, para crear las municiones, como sabemos se que se debe ejecutar cada 20 segundos, se utiliza setInterval, funcion que sirve para ello
+
+Dia 6:  Se procedio a la creacion de armeria, se verifica que se cumpla los requisitos soliictados y se continuo.
+
