@@ -84,16 +84,30 @@ button>img{
 
 #imagenes{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Cada div ocupa mínimo 120px y se adapta */
+    gap: 10px; /* Espacio entre los elementos */
+    width: 90%; /* Evita desbordamiento */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 10px;
 }
 
 #imagenes>div{
-    width: 25%;
-    height: 100px;
+    background: rgba(255, 255, 255, 0.1); 
+    width: 40%;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #imagenes>div>button{
-    width: 30%;
+    width: 100%;
     height: 30%;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
+}
+
+#imagenes > div img {
+    width: 50px; /* Ajusta el tamaño de la imagen */
+    height: 50px;
 }

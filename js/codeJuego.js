@@ -3,9 +3,10 @@ window.onload=()=>{
 
     const jugador={
         nombre:usuario,
+        dolar:0,
         soldados:0,
         fabrica:0,
-        dolar:0,
+        entrenamiento:0,
         logistica:0,
         armamentos:0,
         explosivos:0,
@@ -112,12 +113,16 @@ window.onload=()=>{
         entrenamiento.addEventListener("click", function () {
             if (jugador.dolar>=precios.entrenamiento[0] && jugador.explosivos>=precios.entrenamiento[1]) {
                 jugador.soldados+=5;
+                jugador.entrenamiento++;
                 jugador.dolar-=precios.entrenamiento[0];
                 jugador.explosivos-=precios.entrenamiento[1];
                 precios.entrenamiento[0]+=5;
                 precios.entrenamiento[1]+=5;
                 actualizarMaterial();
-                mostrarMensaje("Se reclutaron 5 Soldados");
+                if (jugador.entrenamiento===1) {
+                    crearImagenEntrenamiento();
+                }
+                mostrarMensaje("Se Creo Campaña Entrenamiento y se reclutaron 5 Soldados");
             }else{
                 mostrarMensajeError("al crear la campaña: "+entrenamiento.innerText);
             }
@@ -132,6 +137,7 @@ window.onload=()=>{
                 jugador.dolar-=precios.fabrica[0];
                 jugador.explosivos-=precios.fabrica[1];
                 jugador.armamentos-=precios.fabrica[2];
+                crearImagenFabrica();
                 setInterval(()=>{
                     jugador.municiones++;
                     actualizarMaterial();
@@ -147,10 +153,11 @@ window.onload=()=>{
             if ( jugador.explosivos>=precios.armeria[0] && jugador.armamentos>=precios.armeria[1] ) {
                 jugador.fabrica++;
                 armeria.disabled=true;
-                document.querySelector("#armerias").style.display="block";
+                //document.querySelector("#armerias").style.display="block";
                 jugador.explosivos-=precios.armeria[0];
                 jugador.armamentos-=precios.armeria[1];
-                creacionArmeria();
+                creacionImagenArmeria();
+                
                 actualizarMaterial();
                 mostrarMensaje("creado Armeria donde podes realizar compras");
             }else{
@@ -193,6 +200,7 @@ window.onload=()=>{
     function creacionImagenVechiulo() {
         let diVehiculos = document.createElement("div");
         let imgVehiculos=document.createElement("img");
+        diVehiculos.innerText="Automotores";
         let btnVehiculos=document.createElement("button");
         btnVehiculos.innerText="Armar Tanque"
         imgVehiculos.src="./img/ed_vehiculosMilitares.png";
@@ -211,7 +219,7 @@ window.onload=()=>{
         })
     }
 
-
+    
 
     //CREACION DE MANDO
 
@@ -225,6 +233,7 @@ window.onload=()=>{
         
         mando.addEventListener("click", function () {
             if ( jugador.dolar>=precios.mando[0] && jugador.armamentos>=precios.mando[1] && jugador.explosivos>=precios.mando[2] ) {
+                mando.disabled=true;
                 jugador.dolar-=precios.mando[0];
                 jugador.armamentos-=precios.mando[1];
                 jugador.explosivos-=precios.mando[2];
@@ -246,6 +255,7 @@ window.onload=()=>{
         let diMando = document.createElement("div");
         let imgMando=document.createElement("img");
         let btnMando=document.createElement("button");
+        diMando.innerText="Control de Mando";
         btnMando.innerText="Cargar Misil"
         imgMando.src="./img/ed_controlMando.png";
         diMando.append(imgMando, btnMando);
@@ -318,6 +328,8 @@ window.onload=()=>{
         
     })
     
+
+    //CREACION DE IMAGEN LOGISTICA
     function crearImagenLogistica() {
         let diLogistica = document.createElement("div");
         let imgLogistica=document.createElement("img");
@@ -335,39 +347,91 @@ window.onload=()=>{
         })
     }
 
+//CREACION DE IMAGEN FABRICA
+    function crearImagenFabrica() {
+        let diFabrica = document.createElement("div");
+        let imgFabrica=document.createElement("img");
+        diFabrica.innerText="Campaña Fabrica"
+        imgFabrica.src="./img/ed_fabrica1.png";
+        diFabrica.append(imgFabrica);
+        imagenes.appendChild(diFabrica);
+        diFabrica.addEventListener("click", function () {
+            if (jugador.fabrica>=1) {                    
+                mostrarMensaje("Posees Campaña Fabrica")
+                actualizarMaterial();
+            }else{
+                mostrarMensajeError("No Tienes Fabrica");
+            }  
+        })
+    }
+
+    //CREACION DE IMAGEN ENTRENAMIENTO
+    function crearImagenEntrenamiento() {
+        let diEntrenamiento = document.createElement("div");
+        let imgEntrenamiento=document.createElement("img");
+        diEntrenamiento.innerText="Campaña Entrenamiento"
+        imgEntrenamiento.src="./img/ed_entrenamiento.png";
+        diEntrenamiento.append(imgEntrenamiento);
+        imagenes.appendChild(diEntrenamiento);
+        diEntrenamiento.addEventListener("click", function () {
+            if (jugador.entrenamiento>=1) {                    
+                let mj="Posees "+jugador.entrenamiento+" Campañas de Entrenamiento";
+                mostrarMensaje(mj);
+                actualizarMaterial();
+            }else{
+                mostrarMensajeError("No Tienes Entrenamiento");
+            }  
+        })
+    }
 
     //BOTON ARMERIA PARA COMPRAS
     var compras=document.querySelector("#compras");
-    document.querySelector("#btn_armeria").addEventListener("click", function () {
-        if (compras.style.display === "block") {
-            compras.style.display = "none"; 
-        } else {
-            compras.style.display = "block";   
-        }
-    });
+    // document.querySelector("#btn_armeria").addEventListener("click", function () {
+    //     if (compras.style.display === "block") {
+    //         compras.style.display = "none"; 
+    //     } else {
+    //         compras.style.display = "block";   
+    //     }
+    // });
+
+
+    //CREACION DE IMAGEN ARMERIA
+    function creacionImagenArmeria() {
+        let diArmeria = document.createElement("div");
+        //let imgArmeria=document.createElement("img");
+        diArmeria.innerText="Armeria";
+        // let btnArmeria=document.createElement("button");
+        // btnArmeria.innerText="Armeria"
+        // //imgArmeria.src="./img/ed_armeria.png";
+        // diArmeria.append(btnArmeria);
+        imagenes.appendChild(diArmeria);
+        creacionArmeria(diArmeria);
+        
+    }
 
     //FUNCION DE CREACION DE ARMERIA
-    function creacionArmeria() {
+    function creacionArmeria(compras) {
         //CREACION DE BOTON ARMAMENTO
         let armamento = document.createElement("button");
         armamento.innerText="Armamento";
-        let imagenarmamento=document.createElement("img");
-        imagenarmamento.src="./img/re_arma.png";
-        armamento.appendChild(imagenarmamento);
+        armamento.setAttribute("font-size", "5px");
+        // let imagenarmamento=document.createElement("img");
+        // imagenarmamento.src="./img/re_arma.png";
+        // armamento.appendChild(imagenarmamento);
         
         //CREACION DE BOTON EXPLOSIVOS
         let explosivos = document.createElement("button");
         explosivos.innerText="Explosivos";
-        let imagenexplosivos=document.createElement("img");
-        imagenexplosivos.src="./img/explosivo.png";
-        explosivos.appendChild(imagenexplosivos);
+        // let imagenexplosivos=document.createElement("img");
+        // imagenexplosivos.src="./img/explosivo.png";
+        // explosivos.appendChild(imagenexplosivos);
 
         //CREACION DE BOTON PROTECCION
         let proteccion = document.createElement("button");
         proteccion.innerText="Proteccion";
-        let imagenproteccion=document.createElement("img");
-        imagenproteccion.src="./img/re_chaleco.png";
-        proteccion.appendChild(imagenproteccion);
+        // let imagenproteccion=document.createElement("img");
+        // imagenproteccion.src="./img/re_chaleco.png";
+        // proteccion.appendChild(imagenproteccion);
 
         compras.append(armamento,explosivos, proteccion);
         
@@ -485,7 +549,6 @@ window.onload=()=>{
 
 
     
-
 
     
 }
