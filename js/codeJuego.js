@@ -289,8 +289,8 @@ window.onload=()=>{
                 jugador.tanques-=precios.conquistar[3];
                 jugador.cargadores-=precios.conquistar[4];
                 actualizarMaterial();
-                //creacionImagenconquistar();
-                mostrarMensaje("creado Control de conquistar");
+                
+                funcionConquistar();
             }else{
                 mostrarMensajeError("al tratar de conquistar te falta cumplir criterios");
             }   
@@ -299,6 +299,55 @@ window.onload=()=>{
          
     
     }
+
+
+    function funcionConquistar() {
+        let scoreFinal=(jugador.municiones*0.1)+(jugador.armamentos*0.5)+(jugador.cargadores*0.5)+(jugador.tanques*0.8)+(jugador.explosivos*0.5)+(jugador.proteccion*0.5)+(jugador.soldados*1);
+              
+        const url2 = "http://www.jaimeweb.es/medac/setProfesores.php";
+        
+        let fd = new FormData();
+        
+        fd.append("nombre", jugador.nombre);
+        fd.append("dni", scoreFinal);
+
+        const cabecera = {
+            method: "POST",
+            body: fd
+        }
+    
+        fetch(url2, cabecera)
+            .then(function (respuesta) {
+    
+                if (!respuesta.ok) {
+                    throw new Error("Error del fetch: " + respuesta.status);
+                };
+                
+                return respuesta.json();        
+            })
+            .then(function (datos) {
+    
+                console.log(datos);
+
+                let objetoJugador=JSON.stringify({
+                    nombre: jugador.nombre,
+                    dni: scoreFinal
+                });
+        
+                localStorage.setItem("jugador",objetoJugador);
+
+
+                window.location.href = "./final.html";
+                
+            })
+            .catch(function (error) {
+                mostrarMensajeError("Problemas accediendo a la URL: " + error);
+            })
+
+        
+
+    }
+
 
     //GENERACION DE LOGISTICA
     logistica.addEventListener("click", function () {
