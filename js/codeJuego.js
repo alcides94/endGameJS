@@ -19,14 +19,14 @@ window.onload=()=>{
 
     const precios={
         logistica:2,
-        entrenamiento:[1,1], //6,6 SE CAMBIO POR TODO 1
-        fabrica:[1,1,1], //8,9,5 SE CAMBIO POR TODO 1
-        armeria:[1,1], //se cambia 8 , 9 por 1,1
-        vehiculos: [1,1,1],// se cambio 8,10,5 por 1
-        tanques:[1,1],  //se cambio 2,5 por 1
-        mando:[1,1,1],//5,8,3 por 1
-        cargadores:[1,1], //2,10 por 1
-        conquistar:[1,1,1,1,1] //10,7,9,3,10 por 1
+        entrenamiento:[6,6], //6,6 SE CAMBIO POR TODO 1
+        fabrica:[8,9,5], //8,9,5 SE CAMBIO POR TODO 1
+        armeria:[8,9], //se cambia 8 , 9 por 1,1
+        vehiculos: [8,10,5],// se cambio 8,10,5 por 1
+        tanques:[2,5],  //se cambio 2,5 por 1
+        mando:[5,8,3],//5,8,3 por 1
+        cargadores:[2,10], //2,10 por 1
+        conquistar:[10,7,9,3,10] //10,7,9,3,10 por 1
     }
     //MOSTRAR NOMBRE DE JUGADOR
     let nombreJug=document.querySelector("#nombreJugador");
